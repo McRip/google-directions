@@ -1,7 +1,14 @@
-require "google-directions/version"
+require "queryparams"
+require "httparty"
+require "polylines"
 
-module Google
-  module Directions
-    # Your code goes here...
-  end
+require "google-directions/version"
+require "google-directions/directions"
+require "google-directions/result"
+require "google-directions/route"
+require "google-directions/leg"
+require "google-directions/step"
+
+module GoogleDirections
+
 end
