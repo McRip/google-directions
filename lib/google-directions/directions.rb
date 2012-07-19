@@ -57,6 +57,7 @@ module GoogleDirections
       true
     end
 
+    def get_polyline(detailed=false, route=0)
       polyline = []
       self.results.each {|result|
         polyline += result.get_polyline(detailed, route)
