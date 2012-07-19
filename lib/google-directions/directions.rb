@@ -45,6 +45,9 @@ module GoogleDirections
       request_count = ((self.points.size-10.0)/9).ceil
       point_index = 0
       (0..request_count).each { |request_index|
+        if request_count > 15
+          sleep 0.2
+        end
         end_index = point_index+9
         params = buildParams(self.points[point_index..end_index])
         response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?"+params)
@@ -54,7 +57,6 @@ module GoogleDirections
       true
     end
 
-    def get_polyline(detailed=false, route=0)
       polyline = []
       self.results.each {|result|
         polyline += result.get_polyline(detailed, route)
